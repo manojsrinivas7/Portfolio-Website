@@ -38,7 +38,7 @@ const setCharacter = (
                     mat.color.setHex(0x1560bd); // Denim blue
                   } else if (meshName.includes("shoe")) {
                     mat.color.setHex(0xffffff); // White
-                  } else if (meshName.includes("hand") || meshName.includes("neck") || meshName.includes("ear") || meshName.includes("head") || meshName.includes("face")) {
+                  } else if (meshName.includes("hand") || meshName.includes("neck") || meshName.includes("ear") || meshName.includes("head") || meshName.includes("face") || meshName.includes("cube.002")) {
                     mat.color.setHex(0xc57e65); // Warm brownish-peach skin tone matching reference
                   }
                 }
