@@ -97,7 +97,9 @@ body {
   height: var(--vh);
   margin: auto;
   margin-top: 50px;
-  margin-bottom: -100px;
+  margin-bottom: 50px;
+  background-color: var(--backgroundColor);
+  z-index: 10;
 }
 
 .techstack h2 {

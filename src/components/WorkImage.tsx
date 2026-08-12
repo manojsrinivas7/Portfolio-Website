@@ -36,7 +36,20 @@ const WorkImage = (props: Props) => {
             <MdArrowOutward />
           </div>
         )}
-        <img src={props.image} alt={props.alt} />
+        <div style={{
+          width: "100%", 
+          height: "250px", 
+          background: "linear-gradient(135deg, #1e1e1e 0%, #0b080c 100%)", 
+          display: "flex", 
+          justifyContent: "center", 
+          alignItems: "center", 
+          borderRadius: "20px", 
+          border: "1px solid #363636"
+        }}>
+          <h3 style={{ color: "#aa42ff", fontSize: "20px", fontWeight: "normal", letterSpacing: "2px", textTransform: "uppercase" }}>
+            📂 View Project Files
+          </h3>
+        </div>
         {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
       </a>
     </div>

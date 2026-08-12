@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib";
 import { setCharTimeline, setAllTimeline } from "../../utils/GsapScroll";
-import { decryptFile } from "./decrypt";
 
 const setCharacter = (
   renderer: THREE.WebGLRenderer,
@@ -16,15 +15,9 @@ const setCharacter = (
   const loadCharacter = () => {
     return new Promise<GLTF | null>(async (resolve, reject) => {
       try {
-        const encryptedBlob = await decryptFile(
-          "/models/character.enc",
-          "Character3D#@"
-        );
-        const blobUrl = URL.createObjectURL(new Blob([encryptedBlob]));
-
         let character: THREE.Object3D;
         loader.load(
-          blobUrl,
+          "/models/character.glb",
           async (gltf) => {
             character = gltf.scene;
             await renderer.compileAsync(character, camera, scene);
@@ -34,8 +27,22 @@ const setCharacter = (
                 child.castShadow = true;
                 child.receiveShadow = true;
                 mesh.frustumCulled = true;
+
+                const meshName = mesh.name.toLowerCase();
+                if (mesh.material) {
+                  const mat = (mesh.material as THREE.MeshStandardMaterial).clone();
+                  mesh.material = mat;
+                  if (meshName.includes("shirt")) {
+                    mat.color.setHex(0xcc0000); // Red
+                  } else if (meshName.includes("pant")) {
+                    mat.color.setHex(0x1560bd); // Denim blue
+                  } else if (meshName.includes("shoe")) {
+                    mat.color.setHex(0xffffff); // White
+                  }
+                }
               }
             });
+
             resolve(gltf);
             setCharTimeline(character, camera);
             setAllTimeline();

@@ -6,6 +6,30 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
+const projects = [
+  {
+    title: "Comprehensive Investment Analysis",
+    category: "J.P. Morgan Chase & Co.",
+    tools: "Market Research, Data Synthesis, Communication",
+    image: "/images/placeholder.webp",
+    link: "https://drive.google.com/drive/folders/1ZovaqZ5iOXerWiGw0YZq_Oxbv6NkNDY7?usp=share_link"
+  },
+  {
+    title: "Digital Presence & Footprint Study",
+    category: "Shree Epsilon Threads",
+    tools: "Brand Strategy, Online Visibility, Marketing",
+    image: "/images/placeholder.webp",
+    link: "https://drive.google.com/drive/folders/1ZovaqZ5iOXerWiGw0YZq_Oxbv6NkNDY7?usp=share_link"
+  },
+  {
+    title: "Market Share & Brand Strategy",
+    category: "Gucci",
+    tools: "Tableau, Excel, Research, Insights",
+    image: "/images/placeholder.webp",
+    link: "https://drive.google.com/drive/folders/1ZovaqZ5iOXerWiGw0YZq_Oxbv6NkNDY7?usp=share_link"
+  }
+];
+
 const Work = () => {
   useGSAP(() => {
   let translateX: number = 0;
@@ -39,12 +63,6 @@ const Work = () => {
     x: -translateX,
     ease: "none",
   });
-
-  // Clean up (optional, good practice)
-  return () => {
-    timeline.kill();
-    ScrollTrigger.getById("work")?.kill();
-  };
 }, []);
   return (
     <div className="work-section" id="work">
@@ -53,21 +71,21 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {[...Array(6)].map((_value, index) => (
+          {projects.map((project, index) => (
             <div className="work-box" key={index}>
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
 
                   <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
+                    <h4>{project.title}</h4>
+                    <p>{project.category}</p>
                   </div>
                 </div>
                 <h4>Tools and features</h4>
-                <p>Javascript, TypeScript, React, Threejs</p>
+                <p>{project.tools}</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <WorkImage image={project.image} link={project.link} alt="" />
             </div>
           ))}
         </div>

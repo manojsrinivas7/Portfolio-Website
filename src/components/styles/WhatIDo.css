@@ -34,7 +34,9 @@
 }
 .what-box-in {
   flex-direction: column;
-  height: 500px;
+  min-height: 500px;
+  height: auto;
+  padding-bottom: 20px;
   margin-left: 200px;
   position: relative;
   display: none;
@@ -199,7 +201,8 @@
   animation: whatBorders 1.2s 1 forwards;
 }
 .what-border2 svg {
-  height: 500px;
+  height: 100%;
+  min-height: 500px;
   top: 50%;
   transform: translateY(-50%);
   position: absolute;

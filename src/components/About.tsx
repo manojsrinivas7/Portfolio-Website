@@ -6,9 +6,10 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          Marketing specialist experienced in digital content, brand research, and social media campaigns across LinkedIn, Instagram, and X. Strong attention to detail with fluent communication in English, Hindi, Kannada, and Telugu.
+        </p>
+        <p className="para" style={{ marginTop: "20px" }}>
+          Available immediately for full-time apprentice roles in Bengaluru for social media, digital marketing, and campaign operations.
         </p>
       </div>
     </div>
